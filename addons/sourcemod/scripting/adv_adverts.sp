@@ -1241,7 +1241,7 @@ stock ReplaceClientText(client, const String:inputText[], String:outputText[], o
 		i++;
 		if (StrContains(outputText, g_clientRawText[i], false) != -1)
 		{
-			GetClientAuthString(client, strTemp, sizeof(strTemp));
+			GetClientAuthId(client, AuthIdType:AuthId_Steam2, strTemp, sizeof(strTemp), true);
 			ReplaceString(outputText, outputText_maxLength, g_clientRawText[i], strTemp, false);
 		}
 		i++;
