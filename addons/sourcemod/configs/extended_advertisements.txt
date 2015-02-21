@@ -1,0 +1,43 @@
+"Advertisements"
+{
+    "1"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Hello {green}{CLIENT_NAME}{darkgray}, welcome to {green}$COMMUNITY_NAME."
+    }
+    "2"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Current map is {green}{CURRENTMAP}"
+    }
+    "3"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Next map is {green}{NEXTMAP}{darkgray} in {green}{TIMELEFT}"
+    }
+    "4"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Alltalk is {green}{CONVAR_BOOL:sv_alltalk}{darkgray}"
+    }
+    "5"
+    {
+        "type"      "S"
+        "text"      "{darkgray}If you enjoy playing on this server please add us to your favorites: {green}{FULL_IP}"
+    }
+    "6"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Want to change the map?  Type {green}rtv{darkgray} in chat to call a map vote"
+    }
+    "7"
+    {
+        "type"      "S"
+        "text"      "{darkgray}The map vote is chosen by nominations, type {green}!nominate{darkgray} to nominate a map.  Type {green}!noms{darkgray} to view all nominated maps"
+    }
+    "8"
+    {
+        "type"      "S"
+        "text"      "{darkgray}Type {green}!revote{darkgray} in chat while a vote is still in play to change your vote."
+    }
+}

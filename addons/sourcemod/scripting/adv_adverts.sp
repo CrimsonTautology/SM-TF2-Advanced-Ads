@@ -7,7 +7,6 @@
 #include <steamtools>
 #define REQUIRE_EXTENSIONS
 #undef REQUIRE_PLUGIN
-#include <updater>
 #define REQUIRE_PLUGIN
 #if defined ADVERT_SOURCE2009
 #include <morecolors_ads>
@@ -18,13 +17,7 @@
 #include <smlib>
 #include <extended_adverts>
 
-#define PLUGIN_VERSION "1.2.9"
-
-#if defined ADVERT_SOURCE2009
-#define UPDATE_URL "http://dl.dropbox.com/u/83581539/update-tf2.txt"
-#else
-#define UPDATE_URL "http://dl.dropbox.com/u/83581539/update-nontf2.txt"
-#endif
+#define PLUGIN_VERSION "1.2.9custom"
 
 new Handle:g_hPluginEnabled = INVALID_HANDLE;
 new Handle:g_hAdvertDelay = INVALID_HANDLE;
@@ -114,10 +107,10 @@ static const String:g_strKeyValueKeyList[4][8] =
 public Plugin:myinfo = 
 {
 	name        = "Extended Advertisements",
-	author      = "Mini",
+	author      = "Mini + modded by CrimsonTautology",
 	description = "Extended advertisement system for Source 2009 Games' new color abilities for developers",
 	version     = PLUGIN_VERSION,
-	url         = "http://forums.alliedmods.net/"
+	url         = "https://github.com/CrimsonTautology/SM-TF2-Advanced-Ads"
 };
 
 public APLRes:AskPluginLoad2(Handle:myself, bool:late, String:error[], err_max)
@@ -431,19 +424,12 @@ public OnPluginStart()
 	//g_hDynamicTagRegex = CompileRegex("\\{([Cc][Oo][Nn][Vv][Aa][Rr](_[Bb][Oo][Oo][Ll])?):[A-Za-z0-9_!@#$%^&*()\\-~`+=]{1,}\\}");
 	
 	g_bUseSteamTools = (CanTestFeatures() && GetFeatureStatus(FeatureType_Native, "Steam_GetPublicIP") == FeatureStatus_Available);
-	
-	if (LibraryExists("updater"))
-		Updater_AddPlugin(UPDATE_URL);
 }
 
 #if defined ADVERT_SOURCE2009
 stock bool:IsGameCompatible()
 {
-	/*new sdkversion = GuessSDKVersion();
-	if (SOURCE_SDK_EPISODE2VALVE <= sdkversion < SOURCE_SDK_LEFT4DEAD || sdkversion >= SOURCE_SDK_CSGO)*/
-	if (SOURCE_SDK_EPISODE2VALVE <= GuessSDKVersion() < SOURCE_SDK_LEFT4DEAD)
-		return true;
-	return false;
+    return true;
 }
 #endif
 
@@ -538,17 +524,11 @@ stock format_time(timestamp, String: formatted_time[192])
  
 public OnLibraryAdded(const String:name[])
 {
-	if (StrEqual(name, "updater"))
-		Updater_AddPlugin(UPDATE_URL);
-	
 	g_bUseSteamTools = (CanTestFeatures() && GetFeatureStatus(FeatureType_Native, "Steam_GetPublicIP") == FeatureStatus_Available);
 }
 
 public OnLibraryRemoved(const String:name[])
 {
-	if (StrEqual(name, "updater"))
-		Updater_RemovePlugin();
-	
 	g_bUseSteamTools = (CanTestFeatures() && GetFeatureStatus(FeatureType_Native, "Steam_GetPublicIP") == FeatureStatus_Available);
 }
 
