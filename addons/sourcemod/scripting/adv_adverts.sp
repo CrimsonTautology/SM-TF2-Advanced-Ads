@@ -1105,9 +1105,9 @@ stock ReplaceAdText(const String:inputText[], String:outputText[], outputText_ma
 					conVarFound = FindConVar(replace);
 					if (conVarFound != INVALID_HANDLE)
 					{
-						new int = GetConVarInt(conVarFound);
-						if (int == 1 || int == 0)
-							ReplaceString(outputText, outputText_maxLength, part, g_strConVarBoolText[int], false);
+						new found = GetConVarInt(conVarFound);
+						if (found == 1 || found == 0)
+							ReplaceString(outputText, outputText_maxLength, part, g_strConVarBoolText[found], false);
 						else
 							ReplaceString(outputText, outputText_maxLength, part, "", false);
 					}
