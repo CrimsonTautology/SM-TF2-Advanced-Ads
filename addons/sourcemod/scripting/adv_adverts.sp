@@ -1479,9 +1479,3 @@ stock Server_GetIPNumString(String:ipBuffer[], ipBuffer_maxLength, bool:useSteam
 		}
 	}
 }
-
-public OnPluginEnd()
-{
-	CloseHandle(g_hAdvertisements);
-	CloseHandle(g_hTopColorTrie);
-}
