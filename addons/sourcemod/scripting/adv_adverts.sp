@@ -605,6 +605,9 @@ public OnMapStart()
 
 public OnMapEnd()
 {
+	if(g_hAdvertisements != INVALID_HANDLE) CloseHandle(g_hAdvertisements);
+	if(g_hTopColorTrie   != INVALID_HANDLE) CloseHandle(g_hTopColorTrie);
+
 	if (g_hAdvertTimer != INVALID_HANDLE)
 	{
 		KillTimer(g_hAdvertTimer);
