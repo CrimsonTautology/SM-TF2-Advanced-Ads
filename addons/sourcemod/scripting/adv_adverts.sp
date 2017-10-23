@@ -369,7 +369,7 @@ public Native_AddChatColorToTrie(Handle:plugin, numParams)
 
 public OnPluginStart()
 {
-	CreateConVar("extended_advertisements_version", PLUGIN_VERSION, "Display advertisements", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
+	CreateConVar("extended_advertisements_version", PLUGIN_VERSION, "Display advertisements", FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
 	
 	#if defined ADVERT_SOURCE2009
 	if (!IsGameCompatible())
